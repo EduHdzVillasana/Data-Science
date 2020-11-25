@@ -52,3 +52,17 @@ estén ubicada en Brazil.
   'address.country': 'Brazil'
  }
 }
+
+
+Reto 3:
+Usando la colección sample_airbnb.listingsAndReviews, mediante el uso de agregaciones, encontrar 
+el número de publicaciones que tienen conexión a Internet, sea desde Wifi o desde cable (Ethernet).
+
+[{$match: {
+  amenities: {$in: ["Wifi","Ethernet"]}
+}}, {$group: {
+  _id:null,
+  num: {
+    $sum:1,
+  }
+}}]
